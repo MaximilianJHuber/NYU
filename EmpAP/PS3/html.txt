@@ -1,0 +1,26 @@
+<table style="border-collapse:collapse; border:none;border-top:double;border-bottom:double;">
+<tbody>
+<tr><td style="padding:0.1cm" colspan="100%"></td></tr>
+<tr><td>                     <td colspan="1" style="padding:0.2cm; text-align:center; border-bottom:1px solid;">avg_ret</td> </td></tr>
+
+<tr><td>                     </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                             (1) </td></tr>
+<tr style="border-bottom:1px solid black"><td style="padding:0.1cm" colspan="100%"></td></tr><tr><td style="padding:0.1cm" colspan="100%"></td></tr>
+<tr><td>(Intercept)          </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                           0.135 </td></tr>
+<tr><td>                     </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                         (0.078) </td></tr>
+<tr><td>β_G_MKT              </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                         0.407** </td></tr>
+<tr><td>                     </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                         (0.108) </td></tr>
+<tr><td>β_G_SMB              </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                         -0.295* </td></tr>
+<tr><td>                     </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                         (0.130) </td></tr>
+<tr><td>β_G_HML              </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                          -0.006 </td></tr>
+<tr><td>                     </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                         (0.124) </td></tr>
+<tr><td>β_G_RMW              </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                          -0.079 </td></tr>
+<tr><td>                     </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                         (0.114) </td></tr>
+<tr><td>β_G_CMA              </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                          -0.169 </td></tr>
+<tr><td>                     </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                         (0.108) </td></tr>
+<tr style="border-bottom:1px solid black"><td style="padding:0.1cm" colspan="100%"></td></tr><tr><td style="padding:0.1cm" colspan="100%"></td></tr>
+<tr><td>Estimator            </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                             OLS </td></tr>
+<tr style="border-bottom:1px solid black"><td style="padding:0.1cm" colspan="100%"></td></tr><tr><td style="padding:0.1cm" colspan="100%"></td></tr>
+<tr><td><i>N</i>             </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                              20 </td></tr>
+<tr><td><i>R<sup>2</sup></i> </td><td style="padding:0.2em; padding-left:0.8em; padding-right:0.8em;">                                                                                           0.677 </td></tr>
+<tr><td style="padding:0.15cm" colspan="100%"></td></tr>
+</tbody></table>
