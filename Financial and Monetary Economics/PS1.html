@@ -11813,7 +11813,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$$dr_{t}^{K}(\iota_{t}^{i})=\Big(\frac{a_{t}-\iota_{t}^{i}}{q_{t}}+\Phi\big(\frac{\bar{a}}{a_{t}}\iota_{t}^{i}\big)-\delta\Big)dt+\sigma_{t}^{q}dZ_{t}$$</p>
+<p>$$dr_{t}^{K}(\iota_{t}^{i})=\Big(\frac{a_{t}-\iota_{t}^{i}}{q_{t}}+\Phi\big(\frac{\bar{a}}{a_{t}}\iota_{t}^{i}\big)-\delta + \mu_t^q\Big)dt+\sigma_{t}^{q}dZ_{t}$$</p>
 
 </div>
 </div>
@@ -11833,8 +11833,9 @@ $$q_t\Big(\rho + \frac{1}{\kappa}\Big)=a_t\Big(1+\frac{1}{\kappa\bar{a}}\Big)$$<
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="2">2<a class="anchor-link" href="#2">&#182;</a></h2><p>If $\phi&gt;0$ there is a drift in $q_t$.</p>
-<p>??</p>
+<h2 id="2">2<a class="anchor-link" href="#2">&#182;</a></h2><p>If $\phi&gt;0$ there is a drift in $q_{t}=a_{t}\frac{1}{\bar{a}}\frac{\bar{a}\kappa+1}{\kappa\rho+1}$:</p>
+<p>$$\frac{dq_t}{q_t} = -\phi\Big(\log \bar{a} - \log a_t\Big) dt + \sigma dZ_t$$</p>
+<p>With $\iota=\frac{q_t - \frac{a_t}{\bar{a}}}{\kappa}$, the term $\frac{a_t - \iota_t}{q_t}$ is constant.</p>
 <h2 id="3">3<a class="anchor-link" href="#3">&#182;</a></h2><p>??</p>
 
 </div>
@@ -11886,7 +11887,7 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">q</span><span class="p">(</span><span class="n">η</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">κ</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">η</span> <span class="o">*</span> <span class="p">(</span><span class="n">ρ</span> <span class="o">+</span> <span class="n">ρ_</span><span class="p">)</span> <span class="o">+</span> <span class="n">ρ_</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">κ</span><span class="p">)</span>
@@ -11905,13 +11906,33 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[1]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Φ (generic function with 1 method)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">LaTeXStrings</span><span class="p">;</span> <span class="n">pyplot</span><span class="p">();</span>
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">Plots</span><span class="p">,</span> <span class="n">LaTeXStrings</span><span class="p">,</span> <span class="n">NLsolve</span><span class="p">;</span> <span class="n">pyplot</span><span class="p">();</span>
 
 <span class="kd">const</span> <span class="n">κ</span> <span class="o">=</span> <span class="mf">10.</span>
 <span class="kd">const</span> <span class="n">a</span> <span class="o">=</span> <span class="mf">0.11</span>
@@ -11927,7 +11948,7 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">1</span><span class="p">)</span>
@@ -11948,7 +11969,7 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[41]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -11968,10 +11989,53 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>$\mu^\eta$ seems wrong!</p>
+<p>The minimum of $\mu^\eta$ is still strictly positive:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">nlsolve</span><span class="p">(</span><span class="n">η_vec</span> <span class="o">-&gt;</span> <span class="n">μη</span><span class="p">(</span><span class="n">η_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">],</span> <span class="n">autodiff</span> <span class="o">=</span> <span class="o">:</span><span class="n">forward</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[88]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Results of Nonlinear Solver Algorithm
+ * Algorithm: Trust-region with dogleg and autoscaling
+ * Starting Point: [0.001]
+ * Zero: [0.561047]
+ * Inf-norm of residuals: 0.017317
+ * Iterations: 1000
+ * Convergence: false
+   * |x - x&#39;| &lt; 0.0e+00: false
+   * |f(x)| &lt; 1.0e-08: false
+ * Function Calls (f): 98
+ * Jacobian Calls (df/dx): 32</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -11986,10 +12050,54 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4">4<a class="anchor-link" href="#4">&#182;</a></h2><p>??</p>
+<h2 id="4">4<a class="anchor-link" href="#4">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The strictly positive drift yields a degenerate stationary distribution again!</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">d</span><span class="p">(</span><span class="n">η</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">μη</span><span class="p">(</span><span class="n">η</span><span class="p">)</span><span class="o">/</span><span class="n">ση</span><span class="p">(</span><span class="n">η</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span> <span class="o">*</span> <span class="n">D</span>
+
+<span class="n">plot</span><span class="p">(</span><span class="n">explicit_Euler</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">grid_x</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mf">0.01</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">1</span><span class="p">),</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.001</span><span class="p">),</span> <span class="n">label</span> <span class="o">=</span> <span class="s">&quot;explicit&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[82]:</div>
+
+
+
+
+<div class="output_png output_subarea output_execute_result">
+<img src="data:image/png;base64,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"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
@@ -12010,12 +12118,12 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[219]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">NLsolve</span><span class="p">,</span> <span class="n">DifferentialEquations</span>
 
-<span class="k">function</span> <span class="n">explicit_Euler</span><span class="p">(</span><span class="n">g</span><span class="p">;</span> <span class="n">grid_x</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">10</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">explicit_Euler</span><span class="p">(</span><span class="n">g</span><span class="p">;</span> <span class="n">grid_x</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">10</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">)</span>
     
     <span class="n">grid_y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">grid_x</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">grid_y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">.=</span> <span class="n">x0</span>
@@ -12027,7 +12135,7 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
     <span class="k">return</span> <span class="p">(</span><span class="n">grid_x</span><span class="p">,</span> <span class="n">grid_y</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="k">function</span> <span class="n">implicit_Euler</span><span class="p">(</span><span class="n">g</span><span class="p">;</span> <span class="n">grid_x</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">10</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">function</span> <span class="n">implicit_Euler</span><span class="p">(</span><span class="n">g</span><span class="p">;</span> <span class="n">grid_x</span> <span class="o">=</span> <span class="n">collect</span><span class="p">(</span><span class="mi">0</span><span class="o">:</span><span class="mf">0.01</span><span class="o">:</span><span class="mi">10</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">)</span>
     
     <span class="n">grid_y</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">grid_x</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
     <span class="n">grid_y</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">:</span><span class="p">]</span> <span class="o">.=</span> <span class="n">x0</span>
@@ -12054,13 +12162,13 @@ And finally $\iota = \frac{q - 1}{\kappa}$ as before.</p>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[219]:</div>
+<div class="prompt output_prompt">Out[67]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>implicit_Euler (generic function with 3 methods)</pre>
+<pre>implicit_Euler (generic function with 1 method)</pre>
 </div>
 
 </div>
